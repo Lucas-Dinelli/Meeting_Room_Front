@@ -1,0 +1,43 @@
+<form #roomForm="ngForm" *ngIf="isItFound; else elseBlock" class="row g-3 justify-content-center">
+
+    <header>
+        <h2 class="title-page">Update Meeting</h2>
+    </header>
+
+    <div class="col-md-7">
+        <label for="inputName" class="form-label">Name</label>
+        <input [(ngModel)]="room.name" required name="name" #roomName="ngModel" type="text" class="form-control" id="inputName">
+    </div>
+
+    <div class="col-md-7">
+        <label for="inputDate" class="form-label">Date</label>
+        <input [(ngModel)]="room.date" required name="date" #roomDate="ngModel" type="date" class="form-control" id="inputDate">
+    </div>
+
+    <div class="col-md-7">
+        <label for="inputStart" class="form-label">Start</label>
+        <input [(ngModel)]="room.startHour" required name="start" #roomStart="ngModel" type="time" class="form-control" id="inputStart">
+    </div>
+
+    <div class="col-md-7">
+        <label for="inputEnd" class="form-label">End</label>
+        <input [(ngModel)]="room.endHour" required name="end" #roomEnd="ngModel" type="time" class="form-control" id="inputEnd">
+    </div>
+
+    <div class="col-md-6 text-center py-5">
+        <button (click)="update()" class="btn btn-primary btn-lg" id="btn-save" type="button">Update</button>
+        <a routerLink="">
+            <button class="btn btn-dark btn-lg" id="btn-cancel" type="button">Cancel</button>
+        </a>
+    </div>
+
+    <div *ngIf="isToShowAlert" class="alert alert-{{alertDetails[1]}} alert-dismissible fade show" role="alert">
+        {{ alertDetails[0] }}
+        <button (click)="back()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+</form>
+
+<ng-template #elseBlock>
+    <app-no-connection [mainMessage] = "messageError" [supportMessage] = "supportMessage"></app-no-connection>
+</ng-template>

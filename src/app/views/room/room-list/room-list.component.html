@@ -1,0 +1,42 @@
+<div *ngIf="isConnected; else isNotConnected">
+<header>
+    <h2 class="title-page">Room list</h2>
+    <a routerLink="create">
+        <button type="button" class="btn btn-success" title="Add meeting">+</button>
+    </a>
+</header>
+
+<div class="scroll-table">
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Start</th>
+                <th scope="col">End</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let room of rooms">
+                <td>{{ room.name }}</td>
+                <td>{{ room.date | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ room.startHour }}</td>
+                <td>{{ room.endHour }}</td>
+                <td>
+                    <a routerLink="update/{{ room.id }}">
+                        <app-edit-icon title="Update"></app-edit-icon>
+                    </a>
+                    <a routerLink="delete/{{ room.id }}">
+                        <app-delete-icon class="delete-icon" title="Delete"></app-delete-icon>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
+<ng-template #isNotConnected>
+    <app-no-connection [mainMessage]="messageError"></app-no-connection>
+</ng-template>

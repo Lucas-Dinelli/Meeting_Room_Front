@@ -1,0 +1,50 @@
+header {
+    padding: 1.5em;
+    padding-bottom: 1em;
+}
+
+.title-page {
+    display: inline-block;
+}
+
+
+.btn {
+    width: 10em;
+    margin-top: 0.5em;
+}
+
+#btn-save{
+    margin-right: 3em;
+}
+
+.alert {
+    position: fixed;
+    width: 40%;
+}
+
+@media(max-width: 991px) {
+    #btn-save{
+        margin-right: 0.2em;
+    }
+}
+
+@media(max-width: 484px) {
+    #btn-save {
+        width: 100%;
+        margin-bottom: 0.1em;
+    }
+    #btn-cancel {
+        width: 100%;
+    }
+}
+
+@media(max-height: 665px) {
+    #btn-save {
+        width: 40%;
+        float: left;
+    }
+    #btn-cancel {
+        width: 40%;
+        float: right;
+    }
+}

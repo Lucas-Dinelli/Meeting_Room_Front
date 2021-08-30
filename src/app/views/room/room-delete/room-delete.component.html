@@ -1,0 +1,38 @@
+<form #roomForm="ngForm" *ngIf="isItFound; else elseBlock" class="row g-3 justify-content-center">
+
+    <header>
+        <h2 class="title-page">Delete Meeting</h2>
+    </header>
+
+    <div class="col-md-7">
+        <label for="inputName" class="form-label">Name</label>
+        <input [(ngModel)]="room.name" required name="name" #roomName="ngModel" type="text" class="form-control" id="inputName" disabled>
+    </div>
+
+    <div class="col-md-7">
+        <label for="inputDate" class="form-label">Date</label>
+        <input [(ngModel)]="room.date" required name="date" #roomDate="ngModel" type="date" class="form-control" id="inputDate" disabled>
+    </div>
+
+    <div class="col-md-7">
+        <label for="inputStart" class="form-label">Start</label>
+        <input [(ngModel)]="room.startHour" required name="start" #roomStart="ngModel" type="time" class="form-control" id="inputStart" disabled>
+    </div>
+
+    <div class="col-md-7">
+        <label for="inputEnd" class="form-label">End</label>
+        <input [(ngModel)]="room.endHour" required name="end" #roomEnd="ngModel" type="time" class="form-control" id="inputEnd" disabled>
+    </div>
+
+    <div class="col-md-6 text-center py-5">
+        <button (click)="delete()" class="btn btn-danger btn-lg" id="btn-save" type="button">Delete</button>
+        <a routerLink="">
+            <button class="btn btn-dark btn-lg" id="btn-cancel" type="button">Cancel</button>
+        </a>
+    </div>
+
+</form>
+
+<ng-template #elseBlock>
+    <app-no-connection [mainMessage] = "messageError" [supportMessage] = "supportMessage"></app-no-connection>
+</ng-template>
