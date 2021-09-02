@@ -31,13 +31,15 @@
         </a>
     </div>
 
-    <div *ngIf="isToShowAlert" class="alert alert-{{alertDetails[1]}} alert-dismissible fade show" role="alert">
-        {{ alertDetails[0] }}
-        <button (click)="back()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+    <app-alert 
+        *ngIf="isToShowAlert" 
+        [alertMessage]=alertDetails[0] 
+        [alertType]="alertDetails[1]" 
+        (click)="back()">
+    </app-alert>
 
 </form>
 
 <ng-template #elseBlock>
-    <app-no-connection [mainMessage] = "messageError" [supportMessage] = "supportMessage"></app-no-connection>
+    <app-no-connection [mainMessage]="messageError" [supportMessage]="supportMessage"></app-no-connection>
 </ng-template>

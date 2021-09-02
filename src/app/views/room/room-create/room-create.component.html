@@ -31,9 +31,6 @@
         </a>
     </div>
 
-    <div *ngIf="isToShowAlert" class="alert alert-{{alertDetails[1]}} alert-dismissible fade show" role="alert">
-        {{ alertDetails[0] }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+    <app-alert *ngIf="isToShowAlert" [alertMessage]=alertDetails[0] [alertType]="alertDetails[1]"></app-alert>
     
 </form>

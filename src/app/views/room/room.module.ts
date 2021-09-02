@@ -11,6 +11,7 @@ import { RoomListComponent } from './room-list/room-list.component';
 import { RoomCreateComponent } from './room-create/room-create.component';
 import { RoomUpdateComponent } from './room-update/room-update.component';
 import { RoomDeleteComponent } from './room-delete/room-delete.component';
+import { AlertModule } from 'src/app/shared/components/alert/alert.module';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { RoomDeleteComponent } from './room-delete/room-delete.component';
         FormsModule,
         EditIconModule,
         DeleteIconModule,
+        AlertModule,
         NoConnectionModule,
         RouterModule.forChild([
             {
